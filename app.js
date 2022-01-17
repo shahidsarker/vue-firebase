@@ -4,9 +4,11 @@ const app = Vue.createApp({
   data() {
     return {
       showBooks: true,
-      title: "The Final Empire",
-      author: "Brandon Sanderson",
-      age: 45,
+      books: [
+        { title: "The Life of Pi", author: "Yann Martel" },
+        { title: "Convenience Store Woman", author: "Sayaka Murata" },
+        { title: "Earthlings", author: "Sayaka Murata" },
+      ],
       x: 0,
       y: 0,
     };
