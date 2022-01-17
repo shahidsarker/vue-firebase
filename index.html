@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <h1>Hello Vue :D</h1>
 
     <div id="app">
-        <div v-if="showBooks">
+      <div v-if="showBooks">
+        <h2>{{title}} - {{author}} - {{age}}</h2>
+        <button v-on:click="age++">Increase age</button>
+        <button v-on:click="age--">Decrease age</button>
+      </div>
 
-            <h2>{{title}} - {{author}} - {{age}}</h2>
-            <button v-on:click="age++">Increase age</button>
-            <button v-on:click="age--">Decrease age</button>
-        </div>
-        
-        <button @click="toggleShowBooks">
-            <span v-if="showBooks">Hide Books</span>
-            <span v-else>Show Books</span>
-            <!-- <span v-if="!showBooks">Show Books</span> -->
-        </button>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
 
-        <div v-show="showBooks">books are currently shown</div>
+      <div v-show="showBooks">books are currently shown</div>
+
+      <br />
+      <!-- mouse events -->
+      <div class="box" @mouseover="handleEvent($event,5)">
+        mouseover (enter)
+      </div>
+      <div class="box" @mouseleave="handleEvent">mouseleave (exit)</div>
+      <div class="box" @dblclick="handleEvent">double click</div>
+      <div class="box" @mousemove="handleMousemove">position: {{x}}, {{y}}</div>
     </div>
 
     <script src="app.js"></script>
